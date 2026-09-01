@@ -193,7 +193,7 @@ class StatisticsAnalyzer:
             recovery_factor=0.0,
         )
 
-    def _calculate_streaks(self, trades: List[Trade]) -> tuple[int, int]:
+    def _calculate_streaks(self, trades: List[Trade]) -> tuple:
         """Calculate longest consecutive wins and losses.
         
         Args:
@@ -224,7 +224,7 @@ class StatisticsAnalyzer:
         
         return max_wins, max_losses
 
-    def _calculate_drawdown(self, trades: List[Trade]) -> tuple[float, float]:
+    def _calculate_drawdown(self, trades: List[Trade]) -> tuple:
         """Calculate maximum drawdown and consecutive loss.
         
         Args:

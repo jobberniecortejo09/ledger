@@ -69,7 +69,7 @@ class TradeStatistics(BaseModel):
     metrics: PerformanceMetrics = Field(...)
     
     # Breakdown by symbol
-    by_symbol: dict[str, PerformanceMetrics] = Field(
+    by_symbol: dict = Field(
         default_factory=dict, description="Metrics grouped by trading symbol"
     )
     
