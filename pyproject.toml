@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ledger"
+version = "0.1.0"
+description = "ICT trade journal for Windows. Reads closed positions from MetaTrader 5, records reasoning, syncs with Notion, reports statistics with rigorous correction."
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Jobberniecortejo09"}]
+
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "pytz>=2024.1",
+    "pydantic>=2.0.0",
+    "notion-client>=2.2.1",
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.9.0",
+    "isort>=5.12.0",
+    "flake8>=6.1.0",
+    "mypy>=1.5.0",
+    "bandit>=1.7.5",
+    "safety>=2.3.0",
+]
+
+mt5 = [
+    "MetaTrader5>=5.0.0",
+]
+
+[project.scripts]
+ledger = "src.cli:cli"
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
