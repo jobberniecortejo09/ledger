@@ -18,10 +18,10 @@ logger = logging.getLogger(__name__)
 
 def main():
     """Main application flow."""
-    logger.info("=" * 60)
+    logger.info("="*60)
     logger.info("Ledger - ICT Trade Journal for MetaTrader 5")
     logger.info(f"Started at {datetime.utcnow().isoformat()}")
-    logger.info("=" * 60)
+    logger.info("="*60)
     
     # Initialize clients
     mt5_client = MetaTrader5Client()
